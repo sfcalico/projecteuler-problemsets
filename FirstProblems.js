@@ -50,26 +50,49 @@ The prime factors of 13195 are 5, 7, 13 and 29.
 What is the largest prime factor of the number 600851475143 ?
 */
 
-const getPrimeFactors = (int) => {
-    const primeArray = [];
-    let isPrime;
+// const getPrimeFactors = (int) => {
+//     const primeArray = [];
+//     let isPrime;
 
-    // find divisors starting with 2
-    for (let i = 2; i <= int; i++) {
-        if (int % i !== 0) continue;
+//     // find divisors starting with 2
+//     for (let i = 2; i <= int; i++) {
+//         if (int % i !== 0) continue;
 
-        // check if divisor is prime
-        for (let j = 2; j <= i/2; j++) {
-            isPrime = i % j !== 0;
+//         // check if divisor is prime
+//         for (let j = 2; j <= i/2; j++) {
+//             isPrime = i % j !== 0;
+//         }
+
+//         if (!isPrime) continue;
+
+//         // if divisor is prime, divide int by number and store
+//         int /= i;
+//         primeArray.push(i);
+//     }
+//     return primeArray;
+// }
+
+// console.log(getPrimeFactors(13195).join(', '));
+
+// rank 555154th difficulty 5%
+
+/* 
+4_
+A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+
+Find the largest palindrome made from the product of two 3-digit numbers. */
+
+const arr = [];
+for (let i = 100; i < 1000; i++) {
+    for (j = 100; j < 1000; j++) {
+        num = i * j;
+        reversed = parseInt(num
+            .toString()
+            .split('')
+            .reverse()
+            .join(''))
+        if (num === reversed) {
+            arr.push(num);
         }
-
-        if (!isPrime) continue;
-
-        // if divisor is prime, divide int by number and store
-        int /= i;
-        primeArray.push(i);
     }
-    return primeArray;
 }
-
-console.log(getPrimeFactors(13195).join(', '));
