@@ -127,13 +127,32 @@ Find the difference between the sum of the squares of the first one hundred natu
 25164150, 497669th person , difficulty 5%
 */
 
-let sum = 0;
-for (let i = 1; i <= 100; i++) {
-    sum += i**2;
+// let sum = 0;
+// for (let i = 1; i <= 100; i++) {
+//     sum += i**2;
+// }
+// let sum2 = 0;
+// for (let i = 1; i <= 100; i++) {
+//     sum2 += i; 
+// }
+// square = sum**2;
+// let diff = square - sum;
+
+/** Problem 7) By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+
+What is the 10 001st prime number? */
+
+const isPrime = (num) => {
+    for (let i = 2; i * i <= num; i++)
+        if (num % i === 0)
+          return false; 
+    return num > 1;
 }
-let sum2 = 0;
-for (let i = 1; i <= 100; i++) {
-    sum2 += i; 
+
+const arr = [];
+for (let i = 2; arr[i] < arr[10002]; i++) {
+    if (isPrime(i)) {
+        arr.push(i);
+    }
 }
-square = sum**2;
-let diff = square - sum;
+console.log(arr);
