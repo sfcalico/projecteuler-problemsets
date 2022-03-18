@@ -242,6 +242,7 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 const array = [];
 const iterate = n => {
     if (n === 1) {
+        array.push(n);
         return array.length;
     }
     if (n % 2 === 0) {
@@ -249,7 +250,7 @@ const iterate = n => {
         return iterate(n/2);
     } else {
         array.push(n);
-        return iterate(3*n);
+        return iterate(3*n+1);
     }
 
 }
